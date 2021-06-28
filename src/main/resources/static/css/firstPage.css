@@ -1,0 +1,70 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+#navBar{
+	display: flex;
+	justify-content: space-between;
+	background-color: #563d7c;
+	color: white;
+	padding: 1.3rem 0.7rem 0rem 0.7rem;
+	align-items: baseline;
+}
+#links{
+	display: flex;
+	justify-content: right;
+}
+body{
+	background-color: #e9e9eb;
+}
+.aTags{
+	text-decoration: none;
+	color: white;
+}
+.aTags:hover{
+	text-decoration: none;
+	color: white;
+}
+#logo{
+	padding: 1%;
+	padding-top: 0px;
+	font-family: Bradley Hand, cursive;
+	text-align: center;
+	background-color: #563d7c;
+	color: white;
+	margin-left: 43.5%;
+}
+#logoTag{
+	text-decoration: none;
+	color: white;
+}
+#main{
+	min-height: 500px;
+	min-width: 1200px;
+    background-image: url("/images/desk.jpeg");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+.sentence{
+	text-align: center;
+	color: dark-gray;
+	font-family: "Fantasy";
+}
+#newForm{
+	display: flex;
+	justify-content: center;
+}
+.btn.btn-primary{
+	background-color: #563d7c;
+	align-items: center;
+	padding: 1%;
+}
+.btn.btn-primary:hover{
+	background-color: #7058a7;
+	align-items: center;
+	padding: 1%;
+}
+.btn.btn-link{
+	padding: 0;
+}

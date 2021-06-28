@@ -1,0 +1,80 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	background-color: #e9e9eb;
+}
+#navBar{
+	display: flex;
+	justify-content: space-between;
+	background-color: #563d7c;
+	color: white;
+	padding: 1.3rem 0.7rem 0rem 0.7rem;
+	align-items: baseline;
+}
+.aTags{
+	text-decoration: none;
+	color: white;
+}
+.aTags:hover{
+	text-decoration: none;
+	color: white;
+}
+#logo{
+	padding: 1%;
+	padding-top: 0px;
+	font-family: Bradley Hand, cursive;
+	text-align: center;
+	background-color: #563d7c;
+	color: white;
+	margin-left: 43.5%;
+}
+#logoTag{
+	text-decoration: none;
+	color: white;
+}
+#main{
+	min-height: 500px;
+	min-width: 1200px;
+	display: flex;
+	justify-content: space-around;
+    background-image: url("/images/desk.jpeg");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+#register{
+	padding: 4%;
+}
+/* .form-group{
+	margin-bottom: 0rem;
+} */
+h3{
+	text-align: center;
+}
+.btn.btn-primary{
+	background-color: #563d7c;
+	align-items: center;
+	padding: 3%;
+}
+.btn.btn-primary:hover{
+	background-color: #7058a7;
+	align-items: center;
+	padding: 3%;
+}
+#buttonDiv{
+	display: flex;
+	justify-content: center;
+}
+#fullName{
+	display: flex;
+	justify-content: space-between;
+}
+#errors{
+	color: red;
+}
+.label {
+	color: #505055;
+	font-size: 100%;
+}
