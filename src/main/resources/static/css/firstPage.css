@@ -56,13 +56,17 @@ body{
 	justify-content: center;
 }
 .btn.btn-primary{
-	background-color: #563d7c;
-	align-items: center;
-	padding: 1%;
-}
-.btn.btn-primary:hover{
 	background-color: #7058a7;
 	align-items: center;
+	color: white;
+	border: solid 1px #7058a7;
+	padding: 1%;
+}
+.btn.btn-primary:hover {
+	background-color: #a292c7;
+	align-items: center;
+	color: white;
+	border: solid 1px #a292c7;
 	padding: 1%;
 }
 .btn.btn-link{

@@ -21,6 +21,9 @@ public class PostService {
 	 public List<Post> allPosts() {
 	     return postRepository.findAll(); // https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference 
 	 }
+	 
+	 // created this one for search!
+	 
 	 // creates a post
 	 public Post createPost(Post n) {
 	     return postRepository.save(n); // save() fn from extending from Crud

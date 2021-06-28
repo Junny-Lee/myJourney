@@ -25,29 +25,52 @@
 	</div>
 	<div id="main">
 		<div id="header">
-			<h2 id="welcome"><c:out value="${user.firstName}"/>'s Journal</h2>
-			<c:if test = "${countPosts < 2}">
-				<p>${countPosts} total entry</p>
-			</c:if>
-			<c:if test = "${countPosts > 1}">
-				<p>${countPosts} total entries</p>
-			</c:if>
+			<div id="mainHeader">
+				<h2 id="welcome"><c:out value="${user.firstName}"/>'s Journal</h2>
+				<div id="newEntryDiv">
+					<form:form action="/newPost" method="post" modelAttribute="post" id="newForm">
+					    <button type="submit" class="btn btn-primary w-100">+ New Entry</button>
+					</form:form>
+				</div>
+			</div>
+			<div id="subheader">
+				<c:if test = "${countPosts < 2}">
+					<p>${countPosts} total entry</p>
+				</c:if>
+				<c:if test = "${countPosts > 1}">
+					<p>${countPosts} total entries</p>
+				</c:if>
+				<p>&nbsp|&nbsp</p>
+				<%-- <p>Latest update on <fmt:formatDate value="${p.date}" pattern="MMMM dd, yyyy"/></p> --%>
+			</div>
+			<div id="searchBar">
+		         <form action="/" method="post" id="searchBarForm">
+		         	<input type="search" class="form-control w-25" name="search" placeholder="Search journal"/>
+				    <button type="submit" class="btn btn-primary"><img src="/images/magnifyingGlass.png"/></button>
+				</form>
+			</div>
 		</div>
 		<div id="tableOfPosts">
-			<table class="table table-striped">
+			<table class="table">
 			    <thead>
-			        <tr>
-			            <th scope="col">Title</th>
-			            <th scope="col">Date</th>
-			            <th scope="col">Action / Status</th>
+			        <tr class="border-bottom border-danger">
+			            <th scope="col" style="width: 50%">Entry Title</th>
+			            <th scope="col">Created</th>
+			            <th scope="col" style="text-align: center">Action / Status</th>
 			        </tr>
 			    </thead>
 			    <tbody>
 			        <c:forEach items="${posts}" var="p">
 				        <tr>
-				            <td><a href="/posts/${p.id}"><c:out value="${p.title}"/></a></td>
-				            <td><fmt:formatDate value="${p.date}" pattern="MMMM dd, yyyy"/></td>
 				            <td>
+				            	<a href="/posts/${p.id}"><c:out value="${p.title}"/></a>
+				            	<p id="entryText"><c:out value="${p.text}"/></p>
+				            </td>
+				            <td id="entryDate">
+				            	<fmt:formatDate value="${p.createdAt}" pattern="EEE. MM/dd/yyyy"/> at
+				            	<fmt:formatDate type = "time" value="${p.createdAt}" pattern="h:mm aa"/>
+				            </td>
+				            <td style="text-align: center; padding-left: 0px">
 			            		<p>
 				            		<a href="/posts/${p.id}/edit">Edit</a> &nbsp|&nbsp
 									<a href="/posts/${p.id}/delete">Delete</a>
@@ -60,9 +83,11 @@
 		</div>
 		<br></br>
 		<br><br><br>
- 		<form:form action="/newPost" method="post" modelAttribute="post" id="newForm">
-		    <button type="submit" class="btn btn-primary">Add Entry</button>
-		</form:form>
 	</div>
 </body>
 </html>
+
+
+<!-- https://www.tutorialspoint.com/jsp/jstl_format_formatdate_tag.htm -->
+
+
