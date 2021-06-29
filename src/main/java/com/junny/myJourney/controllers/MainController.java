@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -82,7 +83,8 @@ public class MainController {
 	     // get user from session, save them in the model and return the home page
 		 Long userId = (Long) session.getAttribute("userId");
 		 User u = userService.findUserById(userId);
-		 List<Post> posts = postService.allPosts();
+		 //List<Post> posts = postService.allPosts();
+		 List<Post> posts = postService.allPostsDesc();
 		 int countPosts = posts.size();
 		 model.addAttribute("posts", posts);
 		 model.addAttribute("post", new Post()); // look at this line!
@@ -166,10 +168,6 @@ public class MainController {
 	     postService.deletePost(id);
 	     return "redirect:/posts";
 	 }
-	 // ways to get post id:
-	 // 1. the way we did it here
-	 // 2. get rid of <form> and just make the form: hidden a  input type=hidden with "name" instead of "path" && and then do @RequestParam in the controller and target the "name" 
-	 // 3. @PathVariable and have action="/comment/{postId}
 	 
 	 @RequestMapping("/home")
 	 public String index(HttpSession session, Model model) {
@@ -182,5 +180,26 @@ public class MainController {
 		 model.addAttribute("user", u);
 		 return "homePage.jsp";
 	 }
+	 
+	 // this is new: added search functionality
+	 @RequestMapping("/search/{search}") // READ matched posts
+	 public String viewSearch(Model model,
+			 @PathVariable(value = "search") String search, HttpSession session) {
+	     List<Post> posts = postService.allMatchedPosts(search);
+	     model.addAttribute("posts", posts);
+	     Long userId = (Long) session.getAttribute("userId");
+		 User u = userService.findUserById(userId);
+		 model.addAttribute("user", u);
+		 int countPosts = posts.size();
+		 model.addAttribute("countPosts", countPosts);
+	     return "/matchedPosts.jsp";
+	 }
+	 
+	 @PostMapping("/search") // READ ALL MATCHED SONGS // short hand of post
+	 public String search(@RequestParam(value = "search") String search) {
+//	     return "/posts/index.jsp";
+	     return "redirect:/search/" + search;
+	 }
+	 
 }
 

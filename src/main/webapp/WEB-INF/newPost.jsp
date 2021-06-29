@@ -30,10 +30,10 @@
 		        <form:label path="title" for="title" class="form-label">Title</form:label>
 		        <form:input path="title" type="text" class="form-control" id="title"/>
 		    </div>
-		    <div class="mb-3 w-25">
+<!-- 		    <div class="mb-3 w-25">
 		        <label for="date1" class="form-label">Date</label>
 		        <input name="date1" type="date" class="form-control" id="date1"/>
-		    </div>
+		    </div> -->
 		   	<div class="mb-3 w-25">
 		        <label for="text" class="form-label">Text</label>
 		        <input name="text" type="text" class="form-control" id="text"/>

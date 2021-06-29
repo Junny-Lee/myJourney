@@ -23,6 +23,23 @@ public class PostService {
 	 }
 	 
 	 // created this one for search!
+	 public List<Post> allMatchedPosts(String search){
+		 List<Post> matchedPosts = postRepository.findByTitleContaining(search);
+		 List<Post> matchedPostsInText = postRepository.findByTextContaining(search);
+		 matchedPosts.addAll(matchedPostsInText);
+		 return matchedPosts;
+//		 return postRepository.findByTitleContaining(search);
+	 }
+	 
+	 // created this one for DESC
+	 public List<Post> allPostsDesc(){
+		 return postRepository.postsDescByDate();
+	 }
+	 
+	// created this one for ASC
+		 public List<Post> allPostsAsc(){
+			 return postRepository.postsAscByDate();
+		 }
 	 
 	 // creates a post
 	 public Post createPost(Post n) {

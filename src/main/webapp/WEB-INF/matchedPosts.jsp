@@ -35,12 +35,12 @@
 			</div>
 			<div id="subheader">
 				<c:if test = "${countPosts < 2}">
-					<p>${countPosts} total entry</p>
+					<p>${countPosts} matched entry</p>
 				</c:if>
 				<c:if test = "${countPosts > 1}">
-					<p>${countPosts} total entries</p>
+					<p>${countPosts} matched entries</p>
 				</c:if>
-				<%-- <p>Latest update on <fmt:formatDate value="${p.date}" pattern="MMMM dd, yyyy"/></p> --%>
+				<p>&nbsp | &nbsp <a href="/posts">Back to all entries</a></p>
 			</div>
 			<div id="searchBar">
 		         <form action="/search" method="post" id="searchBarForm">
