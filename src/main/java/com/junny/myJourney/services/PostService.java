@@ -1,7 +1,10 @@
 package com.junny.myJourney.services;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
@@ -22,17 +25,23 @@ public class PostService {
 	 }
 	 
 	 // created this one for search!
-	 public List<Post> allMatchedPosts(String search){
+	 public ArrayList<Post> allMatchedPosts(String search){
+		 ArrayList<Post> output = new ArrayList<Post>(); // did not let us have List
+		 HashMap<Long,Post> map = new HashMap<Long,Post>(); // HashMap = dictionary of Java (dictionaries were in Python and JS)
 		 List<Post> matchedPosts = postRepository.findByTitleContaining(search);
 		 List<Post> matchedPostsInText = postRepository.findByTextContaining(search);
-//		 for (int i = 0; i <matchedPostsInText.size(); i++) {
-//			 if (!matchedPosts.inArray(matchedPostsInText.get(i))) {
-//				 
-//			 }
-//		 }
-		 matchedPosts.addAll(matchedPostsInText);
-		 return matchedPosts;
-//		 return postRepository.findByTitleContaining(search);
+		 for (int i = 0; i <matchedPostsInText.size(); i++) {
+			 map.put(matchedPostsInText.get(i).getId(), matchedPostsInText.get(i)); // map acts as a dictionary (can only have one key value). so we want that key to be the ID (keeps it from duplicating)
+		 }
+		 for (int i = 0; i <matchedPosts.size(); i++) {
+			 map.put(matchedPosts.get(i).getId(), matchedPosts.get(i)); // map acts as a dictionary (can only have one key value). so we want that key to be the ID (keeps it from duplicating)
+		 }
+		 // everything is in the map now, we need to put it into a List<Post>
+		 Set<Long> keys = map.keySet(); // Set sets the keys (empty key map)
+         for(Long key : keys) {
+            output.add(map.get(key));
+         }
+		 return output;
 	 }
 	 
 	 // created this one for DESC

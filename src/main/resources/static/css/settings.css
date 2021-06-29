@@ -47,32 +47,27 @@ body{
 #main{
 	width: 60%;
 	/* background-color: #a292c7; */
-	text-align: center;
+	text-align: left;
 	margin: auto;
 	margin-top: 2%;
-	padding: 10% 5% 20% 4%;
+	padding: 5% 5% 30% 4%;
 	border-left: 50px #3e444b solid;
 	border-radius: 10px;
+	font-family: lucida grande;
 }
 #notebookName{
 	background-color: white;
-	width: 70%;
+	width: 97%;
+	height: 90%;
 	margin: auto;
 	border-radius: 10px;
 }
-.table.table-striped{
-	width: 90%;
-	padding-left: 4%;
-	outline: solid black 1px;
+#journalTheme {
+	margin: auto;
+	text-align: center;
 }
-#welcome{
-	font-family: lucida grande;
-	padding: 7% 4% 4% 4%;
-	border-bottom: rgba(6,91,133,.18) 1px solid;
-}
-#options{
-	display: flex;
-	justify-content: space-around;
+#settingForm{
+	margin-left: 6%;
 }
 .btn.btn-primary{
 	background-color: #563d7c;
@@ -83,20 +78,4 @@ body{
 	background-color: #7058a7;
 	align-items: center;
 	padding: 1%;
-}
-#icons{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-#formViewEntries{
-	border-right: rgba(6,91,133,.18) 1px solid;
-	border-left: rgba(6,91,133,.18) 1px solid;
-}
-#newEntry{
-	text-decoration: none;
-	color: black;
-	font-family: lucida grande;
-	font-size: 110%;
-	color: rgba(6,91,133,.18) 1px solid;
 }

@@ -1,5 +1,6 @@
 package com.junny.myJourney.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -81,6 +82,7 @@ public class MainController {
 		 Long userId = (Long) session.getAttribute("userId");
 		 User u = userService.findUserById(userId);
 		 //List<Post> posts = postService.allPosts();
+		 // dont need this now, but might later for public space!!!
 		 List<Post> posts = postService.allPostsDesc();
 		 int countPosts = posts.size();
 		 model.addAttribute("posts", posts);
@@ -98,19 +100,23 @@ public class MainController {
 		 return "redirect:/";
 	 }
 	 
+	 // added this to allow user to change journalColor (works like an edit)
+	 @RequestMapping(value="/user/{id}/process", method=RequestMethod.PUT) 
+	 public String updateUser(HttpSession session, @RequestParam("journalColor") String journalColor){
+		 Long userId = (Long) session.getAttribute("userId");
+		 User user = userService.findUserById(userId);
+		 user.setJournalColor(journalColor);
+    	 userService.updateUser(user);
+         return "redirect:/home";
+	 }
+	 
 	 @RequestMapping(value="/createPost", method=RequestMethod.POST)
-//	 public String createNew(@Valid @ModelAttribute("post") Post post, BindingResult result, 
-//			 				Model model, HttpSession session,
-//			 				@RequestParam("date1") String date) throws ParseException {
 	 public String createNew(@Valid @ModelAttribute("post") Post post, BindingResult result, 
 				Model model, HttpSession session) {
 		 if(result.hasErrors()) {
 			 System.out.println(result.getFieldErrors());
 			 return "allPosts.jsp";
 		 }
-		 //System.out.println(post.getText() + post.getDate() + post.getText());
-//		 Date d = new SimpleDateFormat("yyyy-MM-dd").parse(date);
-//		 post.setDate(d);
 		 postService.createPost(post);
 		 return "redirect:/posts";
 	 }
@@ -147,17 +153,13 @@ public class MainController {
 	     return "editPost.jsp";
 	 }
 	 
-	 @RequestMapping(value="/posts/{id}/process", method=RequestMethod.PUT) // actually doing the put
-//	 public String update(@Valid @ModelAttribute("post") Post post, BindingResult result, HttpSession session,
-//			 			@RequestParam("date2") String date) throws ParseException {
+	 @RequestMapping(value="/posts/{id}/process", method=RequestMethod.PUT) 
 	 public String update(@Valid @ModelAttribute("post") Post post, BindingResult result, HttpSession session){
 	     if (result.hasErrors()) {
 	    	 System.out.println(result.getAllErrors());
 	         return "editPost.jsp";
 	     } else {
 	    	 post.setCreator(userService.findUserById((Long)session.getAttribute("userId"))); // need to cast 
-//	    	 Date d = new SimpleDateFormat("yyyy-MM-dd").parse(date);
-//			 post.setDate(d);
 	    	 postService.updatePost(post);
 	         return "redirect:/posts";
 	     }
@@ -181,11 +183,24 @@ public class MainController {
 		 return "homePage.jsp";
 	 }
 	 
+	 // new: setting page
+	 @RequestMapping("/settings")
+	 public String settings(HttpSession session, Model model) {
+	     // get user from session, save them in the model and return the home page
+		 Long userId = (Long) session.getAttribute("userId");
+		 User u = userService.findUserById(userId);
+		 List<Post> posts = postService.allPosts();
+		 model.addAttribute("posts", posts);
+		 model.addAttribute("post", new Post()); // look at this line!
+		 model.addAttribute("user", u);
+		 return "settings.jsp";
+	 }
+	 
 	 // this is new: added search functionality
 	 @RequestMapping("/search/{search}") // READ matched posts
 	 public String viewSearch(Model model,
 			 @PathVariable(value = "search") String search, HttpSession session) {
-	     List<Post> posts = postService.allMatchedPosts(search);
+	     ArrayList<Post> posts = postService.allMatchedPosts(search); // changed this from List to ArrayList
 	     model.addAttribute("posts", posts);
 	     Long userId = (Long) session.getAttribute("userId");
 		 User u = userService.findUserById(userId);
@@ -197,8 +212,22 @@ public class MainController {
 	 
 	 @PostMapping("/search") // READ ALL MATCHED SONGS // short hand of post
 	 public String search(@RequestParam(value = "search") String search) {
-//	     return "/posts/index.jsp";
 	     return "redirect:/search/" + search;
+	 }
+	 
+	 @RequestMapping("/posts/{postId}/favorited")
+	 public String favorite(HttpSession session, Model model, @PathVariable("postId") Long postId) {
+	     // get user from session, save them in the model and return the home page
+		 Long userId = (Long) session.getAttribute("userId");
+		 User u = userService.findUserById(userId);
+		 Post p = postService.findPost(postId);
+		 if (p.isFavorite() == false) {p.setFavorite(true);}
+		 else {p.setFavorite(false);}
+		 model.addAttribute("post", new Post()); // look at this line!
+		 model.addAttribute("user", u);
+		 model.addAttribute("p", p);
+		 postService.createPost(p); // save the favorite because create method saves
+		 return "postPage.jsp";
 	 }
 	 
 }

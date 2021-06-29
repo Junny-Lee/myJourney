@@ -15,29 +15,32 @@
 <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <!-- link css -->
-<!-- <link rel="stylesheet" type="text/css" href="/css/index.css"> -->
+<link rel="stylesheet" type="text/css" href="/css/editPage.css">
 </head>
 <body>
-	<div id="navbar">
+	<div id="navBar">
+		<h2 id="logo"><a href="/home" id="logoTag">My Journey</a></h2>
 		<a href="/logout" class="aTags">Logout</a>
 	</div>
-	<h2 id="logo"><a href="/" id="logoTag">My Journey</a></h2>
-	<form:form action="/posts/${post.id}/process" method="post" modelAttribute="post" id="newForm">
-		<%-- <form:hidden value="${post.creator}" path="creator"/> --%>
-		<input type="hidden" name="_method" value="put">
-	    <div class="mb-3 w-25">
-	        <form:label path="title" for="title" class="form-label">Title</form:label>
-	        <form:input path="title" type="text" class="form-control" id="title"/>
-	    </div>
-<!-- 	    <div class="mb-3 w-25">
-	        <label for="date2" class="form-label">Date</label>
-	        <input name="date2" type="date" class="form-control" id="date2"/>
-	    </div> -->
-	   	<div class="mb-3 w-25">
-	        <label for="text" class="form-label">Text</label>
-	        <input name="text" type="text" class="form-control" id="text"/>
-	    </div>
-	    <button type="submit" class="btn btn-info">Create</button>
-	</form:form>
+	<div id="main">
+		<form:form action="/posts/${post.id}/process" method="post" modelAttribute="post" id="newForm">
+			<%-- <form:hidden value="${post.creator}" path="creator"/> --%>
+			<input type="hidden" name="_method" value="put">
+			<div class="form-group col-md-10">
+		        <form:input path="title" type="text" class="form-control" id="title" placeholder="Entry Title"/>
+		        <button type="submit" class="btn btn-primary">Save</button>
+		    </div>
+		    <hr>
+			 <p id="dateRightNow">
+			 	<img src="https://img.icons8.com/material-outlined/24/000000/calendar--v1.png"/>
+				<script> document.write(new Date().toLocaleDateString()); </script>
+			</p>
+		    <hr>
+		   	<div class="form-group col-md-12">
+		        <%-- <form:label path="text" for="text" class="form-label">Text</form:label> --%>
+		        <form:input path="text" type="text" class="form-control" id="text"/>
+		    </div>
+		</form:form>
+	</div>
 </body>
 </html>

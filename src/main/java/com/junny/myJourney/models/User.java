@@ -34,6 +34,8 @@ public class User {
     @Size(min=5, message="Password must be greater than 5 characters.")
     private String password;
     
+    private String journalColor;
+    
     @Transient
     private String passwordConfirmation;
     
@@ -45,6 +47,8 @@ public class User {
     private List<Post> events;
     
     public User() {
+    	this.journalColor = "#a292c7";
+//    	this.journalColor = "#ff3333";
     }
     
     // other getters and setters removed for brevity
@@ -129,6 +133,12 @@ public class User {
 		this.events = events;
 	}
 
-	
+	public String getJournalColor() {
+		return journalColor;
+	}
+
+	public void setJournalColor(String journalColor) {
+		this.journalColor = journalColor;
+	}
     
 }

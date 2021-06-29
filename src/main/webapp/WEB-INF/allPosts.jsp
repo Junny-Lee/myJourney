@@ -40,7 +40,6 @@
 				<c:if test = "${countPosts > 1}">
 					<p>${countPosts} total entries</p>
 				</c:if>
-				<%-- <p>Latest update on <fmt:formatDate value="${p.date}" pattern="MMMM dd, yyyy"/></p> --%>
 			</div>
 			<div id="searchBar">
 		         <form action="/search" method="post" id="searchBarForm">
@@ -54,12 +53,12 @@
 			    <thead>
 			        <tr class="border-bottom border-danger">
 			            <th scope="col" style="width: 50%">Entry Title</th>
-			            <th scope="col">Date</th>
-			            <th scope="col" style="text-align: center">Action / Status</th>
+			            <th scope="col">Created</th>
+			            <th scope="col">Actions</th>
 			        </tr>
 			    </thead>
 			    <tbody>
-			        <c:forEach items="${posts}" var="p">
+			        <c:forEach items="${user.events}" var="p">
 				        <tr>
 				            <td>
 				            	<a href="/posts/${p.id}"><c:out value="${p.title}"/></a>
@@ -73,6 +72,7 @@
 			            		<p>
 				            		<a href="/posts/${p.id}/edit">Edit</a> &nbsp|&nbsp
 									<a href="/posts/${p.id}/delete">Delete</a>
+									<!-- <a href="" id="favorite"><img src="https://img.icons8.com/ios/20/000000/star--v1.png"/></a> -->
 			            		</p>
 				            </td>
 				        </tr>

@@ -16,22 +16,43 @@
 <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <!-- link css -->
-<link rel="stylesheet" type="text/css" href="/css/eventPage.css">
+<link rel="stylesheet" type="text/css" href="/css/postPage.css">
 </head>
 <body>
-	<div id="navbar">
-		<a href="/logout" class="aTags">Log out</a>
+	<div id="navBar">
+		<h2 id="logo"><a href="/home" id="logoTag">My Journey</a></h2>
+		<a href="/logout" class="aTags">Logout</a>
 	</div>
-	<h2 id="logo"><a href="/" id="logoTag">My Journey</a></h2>
 	<div id="main">
-		<div id="leftSide">
-			<h3>${p.title}</h3><br>
-			<p>Host: ${p.creator.firstName} ${p.creator.lastName}</p>
+		<div id="post">
+			<div id="favBar">
+				<h3 id="title">${p.title}</h3>
+				<c:if test="${p.favorite == false}">
+					<a href="/posts/${postId}/favorited" id="favorite"><img src="https://img.icons8.com/ios/20/000000/star--v1.png"/></a>
+				</c:if>
+				<c:if test="${p.favorite == true}">
+					<a href="/posts/${postId}/favorited" id="favorite"><img src="https://img.icons8.com/material-rounded/24/4a90e2/star--v1.png"/></a>
+				</c:if>
+			</div><hr>
 			<p>
-				Created on: <fmt:formatDate value="${p.createdAt}" pattern="EEEEE, MM/dd/yyyy"/> at
-				<fmt:formatDate type = "time" value="${p.createdAt}" pattern="h:mm aa"/>
+				<img src="https://img.icons8.com/material-outlined/24/000000/calendar--v1.png"/>
+				<fmt:formatDate value="${p.createdAt}" pattern="EEE. MM/dd/yyyy"/> at
+				<fmt:formatDate type = "time" value="${p.createdAt}" pattern="h:mm aa"/> &nbsp&nbsp | &nbsp&nbsp
+				<c:if test="${not empty p.updatedAt}">
+					Last update: <fmt:formatDate value="${p.updatedAt}" pattern="EEE. MM/dd/yyyy"/> at
+					<fmt:formatDate type = "time" value="${p.updatedAt}" pattern="h:mm aa"/>
+				</c:if>
 			</p>
-			<p>Text: ${p.text}</p>
+			<%-- <c:if test="${not empty p.updatedAt}">
+				<p>
+					Last update: <fmt:formatDate value="${p.updatedAt}" pattern="EEE. MM/dd/yyyy"/> at
+					<fmt:formatDate type = "time" value="${p.updatedAt}" pattern="h:mm aa"/>
+				</p>
+			</c:if> --%>
+			<hr>
+			<div id="text">
+				<p>${p.text}</p>
+			</div>
 		</div>
 	</div>
 </body>

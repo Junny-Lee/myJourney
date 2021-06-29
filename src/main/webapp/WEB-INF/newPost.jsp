@@ -24,15 +24,21 @@
 	<div id="main">
 	 	<form:form action="/createPost" method="post" modelAttribute="post" id="newForm">
 			<form:hidden value="${user.id}" path="creator"/>
-		    <div class="mb-3 w-25">
-		        <form:label path="title" for="title" class="form-label">Title</form:label>
-		        <form:input path="title" type="text" class="form-control" id="title"/>
+		    <div class="form-group col-md-10">
+		        <form:input path="title" type="text" class="form-control" id="title" placeholder="Entry Title"/>
+		        <button type="submit" class="btn btn-primary">Save</button>
 		    </div>
-		   	<div class="mb-3 w-25">
-		        <label for="text" class="form-label">Text</label>
-		        <input name="text" type="textarea" class="form-control" id="text"/>
+		    <hr>
+			 <p id="dateRightNow">
+			 	&nbsp
+			 	<img src="https://img.icons8.com/material-outlined/24/000000/calendar--v1.png"/>
+				<script> document.write(new Date().toLocaleDateString()); </script>
+			</p>
+		    <hr>
+		   	<div class="form-group col-md-12">
+		        <form:input path="text" type="text" class="form-control" id="text" placeholder="Write text here"/>
 		    </div>
-		    <button type="submit" class="btn btn-primary">Save</button>
+		   <!--  <button type="submit" class="btn btn-primary">Save</button> -->
 		</form:form>
 	</div>
 </body>

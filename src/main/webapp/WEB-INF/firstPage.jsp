@@ -33,10 +33,6 @@
 		    <button type="submit" class="btn btn-primary">GET STARTED!</button>
 		</form:form>
 		<br><br>
-<%-- 		<h5 class="sentence">Already have an account?</h5>
-		<form:form action="/loginNow" method="post" id="newForm">
-		    <button type="submit" class="btn btn-link">Log in</button>
-		</form:form> --%>
 	</div>
 </body>
 </html>

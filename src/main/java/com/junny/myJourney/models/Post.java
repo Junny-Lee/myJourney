@@ -25,9 +25,10 @@ public class Post {
     @NotEmpty(message="There must be a title.")
     private String title;
     
-    //private Date date;
     @NotEmpty(message="Must have text.")
     private String text;
+    
+    private boolean favorite;
     
     @Column(updatable=false)
     private Date createdAt;
@@ -38,6 +39,7 @@ public class Post {
     private User creator;
     
     public Post() {
+    	this.favorite = false; // defaults to false
     }
     
     // other getters and setters removed for brevity
@@ -65,14 +67,6 @@ public class Post {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
-//	public Date getDate() {
-//		return date;
-//	}
-//
-//	public void setDate(Date date) {
-//		this.date = date;
-//	}
 
 	public Date getCreatedAt() {
 		return createdAt;
@@ -105,6 +99,13 @@ public class Post {
 	public void setText(String text) {
 		this.text = text;
 	}
+
+	public boolean isFavorite() {
+		return favorite;
+	}
+
+	public void setFavorite(boolean favorite) {
+		this.favorite = favorite;
+	}
 	
-    
 }

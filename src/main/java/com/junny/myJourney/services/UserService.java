@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
+import com.junny.myJourney.models.Post;
 import com.junny.myJourney.models.User;
 import com.junny.myJourney.repositories.PostRepository;
 import com.junny.myJourney.repositories.UserRepository;
@@ -58,4 +59,22 @@ public class UserService {
             }
         }
     }
+    
+    
+    
+    //update a user (for setting journal color)
+ 	 public User updateUser(Long id, String backColor) {
+ 	 	User user = findUserById(id);
+ 	 	user.setJournalColor(backColor);
+ 	 	return userRepository.save(user);
+ 	 }
+ 	 
+ 	 public User updateUser(User n) {
+ 	 	return userRepository.save(n);
+ 	 }
+    
+    
+    
+    
+    
 }
