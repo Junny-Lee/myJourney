@@ -29,12 +29,12 @@
 			<h3>Sign in here!</h3><br>
 		    <p><c:out value="${error}" /></p>
 		    <form method="post" action="/login">
-		        <div class="form-group">
-		            <input type="text" class="form-control input-lg w-100" id="email" name="email"/><br>
+		        <div class="form-group col-md-12">
+		            <input type="text" class="form-control" id="email" name="email"/><br>
 		            <label for="email" class="label">EMAIL</label>
 		        </div>
-		        <div class="form-group">
-		            <input type="password" class="form-control input-lg w-100" id="password" name="password"/><br>
+		        <div class="form-group col-md-12">
+		            <input type="password" class="form-control" id="password" name="password"/><br>
 		            <label for="password" class="label">PASSWORD</label>
 		        </div>
 		        <div id="buttonDiv"><button type="submit" class="btn btn-primary">Login</button></div>

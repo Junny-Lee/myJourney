@@ -25,7 +25,7 @@ public class Post {
     @NotEmpty(message="There must be a title.")
     private String title;
     
-    private Date date;
+    //private Date date;
     @NotEmpty(message="Must have text.")
     private String text;
     
@@ -66,13 +66,13 @@ public class Post {
 		this.title = title;
 	}
 
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
+//	public Date getDate() {
+//		return date;
+//	}
+//
+//	public void setDate(Date date) {
+//		this.date = date;
+//	}
 
 	public Date getCreatedAt() {
 		return createdAt;

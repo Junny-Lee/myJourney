@@ -1,8 +1,5 @@
 package com.junny.myJourney.controllers;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -102,16 +99,18 @@ public class MainController {
 	 }
 	 
 	 @RequestMapping(value="/createPost", method=RequestMethod.POST)
+//	 public String createNew(@Valid @ModelAttribute("post") Post post, BindingResult result, 
+//			 				Model model, HttpSession session,
+//			 				@RequestParam("date1") String date) throws ParseException {
 	 public String createNew(@Valid @ModelAttribute("post") Post post, BindingResult result, 
-			 				Model model, HttpSession session,
-			 				@RequestParam("date1") String date) throws ParseException {
+				Model model, HttpSession session) {
 		 if(result.hasErrors()) {
 			 System.out.println(result.getFieldErrors());
 			 return "allPosts.jsp";
 		 }
-		 System.out.println(post.getText() + post.getDate() + post.getText());
-		 Date d = new SimpleDateFormat("yyyy-MM-dd").parse(date);
-		 post.setDate(d);
+		 //System.out.println(post.getText() + post.getDate() + post.getText());
+//		 Date d = new SimpleDateFormat("yyyy-MM-dd").parse(date);
+//		 post.setDate(d);
 		 postService.createPost(post);
 		 return "redirect:/posts";
 	 }
@@ -149,15 +148,16 @@ public class MainController {
 	 }
 	 
 	 @RequestMapping(value="/posts/{id}/process", method=RequestMethod.PUT) // actually doing the put
-	 public String update(@Valid @ModelAttribute("post") Post post, BindingResult result, HttpSession session,
-			 			@RequestParam("date2") String date) throws ParseException {
+//	 public String update(@Valid @ModelAttribute("post") Post post, BindingResult result, HttpSession session,
+//			 			@RequestParam("date2") String date) throws ParseException {
+	 public String update(@Valid @ModelAttribute("post") Post post, BindingResult result, HttpSession session){
 	     if (result.hasErrors()) {
 	    	 System.out.println(result.getAllErrors());
 	         return "editPost.jsp";
 	     } else {
 	    	 post.setCreator(userService.findUserById((Long)session.getAttribute("userId"))); // need to cast 
-	    	 Date d = new SimpleDateFormat("yyyy-MM-dd").parse(date);
-			 post.setDate(d);
+//	    	 Date d = new SimpleDateFormat("yyyy-MM-dd").parse(date);
+//			 post.setDate(d);
 	    	 postService.updatePost(post);
 	         return "redirect:/posts";
 	     }

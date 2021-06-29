@@ -1,6 +1,5 @@
 package com.junny.myJourney.services;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,6 +25,11 @@ public class PostService {
 	 public List<Post> allMatchedPosts(String search){
 		 List<Post> matchedPosts = postRepository.findByTitleContaining(search);
 		 List<Post> matchedPostsInText = postRepository.findByTextContaining(search);
+//		 for (int i = 0; i <matchedPostsInText.size(); i++) {
+//			 if (!matchedPosts.inArray(matchedPostsInText.get(i))) {
+//				 
+//			 }
+//		 }
 		 matchedPosts.addAll(matchedPostsInText);
 		 return matchedPosts;
 //		 return postRepository.findByTitleContaining(search);
@@ -55,10 +59,10 @@ public class PostService {
 	     }
 	 }
 	 // updates a post
-	 public Post updatePost(Long id, String title, Date date, String text) {
+	 public Post updatePost(Long id, String title, String text) {
 	 	Post post = findPost(id);
 	 	post.setTitle(title);
-	 	post.setDate(date);
+//	 	post.setDate(date);
 	 	post.setText(text);
 	 	return postRepository.save(post);
 	 }

@@ -30,24 +30,24 @@
 		    <p><form:errors path="user.*" id="errors"/></p>
 		    <form:form method="POST" action="/registration" modelAttribute="user" id="regForm">
 		    	<div id="fullName">
-			    	<div class="form-group">
-			            <form:input type="text" path="firstName" class="form-control input-lg w-100"/><br>
+			    	<div class="form-group col-md-6">
+			            <form:input type="text" path="firstName" class="form-control"/><br>
 			            <form:label path="firstName" class="label">FIRST NAME</form:label>
 			       </div>
-			       <div class="form-group">
-			            <form:input type="text" path="lastName" class="form-control input-lg w-100"/><br>
+			       <div class="form-group col-md-6">
+			            <form:input type="text" path="lastName" class="form-control"/><br>
 			            <form:label path="lastName" class="label">LAST NAME</form:label>
 			       </div>
 		    	</div>
-		       <div class="form-group">
+		       <div class="form-group col-md-12">
 		            <form:input type="email" path="email" class="form-control input-lg w-100"/><br>
 		            <form:label path="email" class="label">EMAIL ADDRESS</form:label>
 		       </div>
-		       <div class="form-group">
+		       <div class="form-group col-md-12">
 		            <form:password path="password" class="form-control input-lg w-100"/><br>
 		            <form:label path="password" class="label">PASSWORD</form:label>
 		       </div>
-		       <div class="form-group">
+		       <div class="form-group col-md-12">
 		            <form:password path="passwordConfirmation" class="form-control input-lg w-100"/><br>
 		            <form:label path="passwordConfirmation" class="label">CONFIRM PASSWORD</form:label>
 		       </div>

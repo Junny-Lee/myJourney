@@ -27,7 +27,10 @@
 		<div id="leftSide">
 			<h3>${p.title}</h3><br>
 			<p>Host: ${p.creator.firstName} ${p.creator.lastName}</p>
-			<p>Date: <fmt:formatDate value="${p.date}" pattern="MMMM dd, yyyy"/></p>
+			<p>
+				Created on: <fmt:formatDate value="${p.createdAt}" pattern="EEEEE, MM/dd/yyyy"/> at
+				<fmt:formatDate type = "time" value="${p.createdAt}" pattern="h:mm aa"/>
+			</p>
 			<p>Text: ${p.text}</p>
 		</div>
 	</div>

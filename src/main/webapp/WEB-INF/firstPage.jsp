@@ -20,7 +20,7 @@
 <div id="navBar">
 	<h2 id="logo"><a href="/" id="logoTag">My Journey</a></h2>
 	<div id="links">
-		<a href="/register" class="aTags">Sign up</a> &nbsp|&nbsp
+		<a href="/register" class="aTags">Sign up</a> &nbsp&nbsp|&nbsp&nbsp
 		<a href="/loginNow" class="aTags">Log in</a>
 	</div>
 </div>

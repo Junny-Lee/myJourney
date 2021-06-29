@@ -17,28 +17,22 @@
 <link rel="stylesheet" type="text/css" href="/css/newPost.css">
 </head>
 <body>
-	<div id="navbar">
-		<a href="/logout" class="aTags">Log out</a>
+	<div id="navBar">
+		<h2 id="logo"><a href="/home" id="logoTag">My Journey</a></h2>
+		<a href="/logout" class="aTags">Logout</a>
 	</div>
-	<h2 id="logo"><a href="/" id="logoTag">My Journey</a></h2>
 	<div id="main">
 	 	<form:form action="/createPost" method="post" modelAttribute="post" id="newForm">
 			<form:hidden value="${user.id}" path="creator"/>
-		<%-- 	<form:errors path="name"/>
-			<form:errors path="lastName"/>  --%>
 		    <div class="mb-3 w-25">
 		        <form:label path="title" for="title" class="form-label">Title</form:label>
 		        <form:input path="title" type="text" class="form-control" id="title"/>
 		    </div>
-<!-- 		    <div class="mb-3 w-25">
-		        <label for="date1" class="form-label">Date</label>
-		        <input name="date1" type="date" class="form-control" id="date1"/>
-		    </div> -->
 		   	<div class="mb-3 w-25">
 		        <label for="text" class="form-label">Text</label>
-		        <input name="text" type="text" class="form-control" id="text"/>
+		        <input name="text" type="textarea" class="form-control" id="text"/>
 		    </div>
-		    <button type="submit" class="btn btn-info">Create</button>
+		    <button type="submit" class="btn btn-primary">Save</button>
 		</form:form>
 	</div>
 </body>

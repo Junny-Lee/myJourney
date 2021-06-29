@@ -19,7 +19,7 @@
 </head>
 <body>
 	<div id="navbar">
-		<a href="/logout" class="aTags">Log out</a>
+		<a href="/logout" class="aTags">Logout</a>
 	</div>
 	<h2 id="logo"><a href="/" id="logoTag">My Journey</a></h2>
 	<form:form action="/posts/${post.id}/process" method="post" modelAttribute="post" id="newForm">
@@ -29,10 +29,10 @@
 	        <form:label path="title" for="title" class="form-label">Title</form:label>
 	        <form:input path="title" type="text" class="form-control" id="title"/>
 	    </div>
-	    <div class="mb-3 w-25">
+<!-- 	    <div class="mb-3 w-25">
 	        <label for="date2" class="form-label">Date</label>
 	        <input name="date2" type="date" class="form-control" id="date2"/>
-	    </div>
+	    </div> -->
 	   	<div class="mb-3 w-25">
 	        <label for="text" class="form-label">Text</label>
 	        <input name="text" type="text" class="form-control" id="text"/>
