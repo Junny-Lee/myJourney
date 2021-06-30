@@ -27,7 +27,7 @@
 		<form:form action="/posts/${post.id}/process" method="post" modelAttribute="post" id="newForm">
 			<%-- <form:hidden value="${post.creator}" path="creator"/> --%>
 			<input type="hidden" name="_method" value="put">
-			<div class="form-group col-md-10">
+			<div class="form-group col-md-12">
 		        <form:input path="title" type="text" class="form-control" id="title" placeholder="Entry Title"/>
 		        <button type="submit" class="btn btn-primary">Save</button>
 		    </div>

@@ -48,10 +48,10 @@ body{
 	margin-top: 4%;
 	color: #454445;
 }
-.form-group.col-md-10{
+.form-group.col-md-12{
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	/* align-items: center; */
 }
 #newForm{
 	padding: 4%;
