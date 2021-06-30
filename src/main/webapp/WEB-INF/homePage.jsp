@@ -39,7 +39,7 @@
 				</form:form>
 			</div><br>
 		</div>
-		<div>
+<%-- 		<div>
 		<!-- don't need to use modelAttribute because validations of user comes with it -->
 			<form action="/user/${user.id}/process" method="post" id="newForm">
 				<input type="hidden" name="_method" value="put">
@@ -56,18 +56,7 @@
 				</select>
 				<button type="submit" class="btn btn-link">Change</button>
 			</form>
-			
-<!-- 			<div class="dropdown">
-				  	<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-				    <img src="https://img.icons8.com/ios/40/000000/settings--v1.png"/>
-				  </button>
-				  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-					    <li><a class="dropdown-item" href="#">Action</a></li>
-					    <li><a class="dropdown-item" href="#">Another action</a></li>
-					    <li><a class="dropdown-item" href="#">Something else here</a></li>
-				  </ul>
-			</div> -->
-		</div>
+		</div> --%>
 	</div>
 </body>
 </html>

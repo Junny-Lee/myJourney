@@ -19,6 +19,7 @@
 </head>
 <body>
 	<div id="navBar">
+		<a href="/posts" class="aTags">Back</a>
 		<h2 id="logo"><a href="/home" id="logoTag">My Journey</a></h2>
 		<a href="/logout" class="aTags">Logout</a>
 	</div>

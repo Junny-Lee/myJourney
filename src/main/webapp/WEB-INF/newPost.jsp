@@ -18,13 +18,14 @@
 </head>
 <body>
 	<div id="navBar">
+		<a href="/posts" class="aTags">Back</a>
 		<h2 id="logo"><a href="/home" id="logoTag">My Journey</a></h2>
 		<a href="/logout" class="aTags">Logout</a>
 	</div>
 	<div id="main">
 	 	<form:form action="/createPost" method="post" modelAttribute="post" id="newForm">
 			<form:hidden value="${user.id}" path="creator"/>
-		    <div class="form-group col-md-10">
+		    <div class="form-group col-md-12">
 		        <form:input path="title" type="text" class="form-control" id="title" placeholder="Entry Title"/>
 		        <button type="submit" class="btn btn-primary">Save</button>
 		    </div>

@@ -34,7 +34,7 @@ body{
 	text-align: center;
 	background-color: #563d7c;
 	color: white;
-	margin-left: 43.5%;
+	/* margin-left: 43.5%; */
 }
 #logoTag{
 	text-decoration: none;
@@ -48,10 +48,10 @@ body{
 	margin-top: 4%;
 	color: #454445;
 }
-.form-group.col-md-10{
+.form-group.col-md-12{
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	/* align-items: center; */
 }
 #newForm{
 	padding: 4%;

@@ -50,7 +50,7 @@ body{
 	text-align: left;
 	margin: auto;
 	margin-top: 2%;
-	padding: 5% 5% 30% 4%;
+	padding: 5% 5% 10% 4%;
 	border-left: 50px #3e444b solid;
 	border-radius: 10px;
 	font-family: lucida grande;
@@ -66,6 +66,9 @@ body{
 	margin: auto;
 	text-align: center;
 }
+#journalCover{
+	padding-left: 10%;
+}
 #settingForm{
 	margin-left: 6%;
 }
@@ -78,4 +81,15 @@ body{
 	background-color: #7058a7;
 	align-items: center;
 	padding: 1%;
+}
+#colorButtons{
+	/* padding: 6%; */
+	text-align: center
+}
+#newColor{
+	display: inline;
+}
+.btn.btn-info{
+	padding: 6%;
+	margin: 2%;
 }

@@ -20,6 +20,7 @@
 </head>
 <body>
 	<div id="navBar">
+		<a href="/home" class="aTags">Home</a>
 		<h2 id="logo"><a href="/home" id="logoTag">My Journey</a></h2>
 		<a href="/logout" class="aTags">Logout</a>
 	</div>
@@ -54,7 +55,7 @@
 			        <tr class="border-bottom border-danger">
 			            <th scope="col" style="width: 50%">Entry Title</th>
 			            <th scope="col">Created</th>
-			            <th scope="col">Actions</th>
+			            <th scope="col">Status</th>
 			        </tr>
 			    </thead>
 			    <tbody>
@@ -62,17 +63,20 @@
 				        <tr>
 				            <td>
 				            	<a href="/posts/${p.id}"><c:out value="${p.title}"/></a>
+				            	<c:if test="${p.favorite == true}">
+				            		<img src="https://img.icons8.com/color/20/000000/filled-flag.png"/>
+				            	</c:if>
 				            	<p id="entryText"><c:out value="${p.text}"/></p>
 				            </td>
 				            <td id="entryDate">
-				            	<fmt:formatDate value="${p.createdAt}" pattern="EEE. MM/dd/yyyy"/> at
+				            	<fmt:formatDate value="${p.createdAt}" pattern="EEE. MM/dd/yyyy"/><br>
 				            	<fmt:formatDate type = "time" value="${p.createdAt}" pattern="h:mm aa"/>
 				            </td>
-				            <td style="text-align: center; padding-left: 0px">
+				            <td>
 			            		<p>
-				            		<a href="/posts/${p.id}/edit">Edit</a> &nbsp|&nbsp
-									<a href="/posts/${p.id}/delete">Delete</a>
-									<!-- <a href="" id="favorite"><img src="https://img.icons8.com/ios/20/000000/star--v1.png"/></a> -->
+			            			Private
+				            		<%-- <a href="/posts/${p.id}/edit">Edit</a> &nbsp|&nbsp
+									<a href="/posts/${p.id}/delete">Delete</a> --%>
 			            		</p>
 				            </td>
 				        </tr>

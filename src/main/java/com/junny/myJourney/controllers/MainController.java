@@ -107,7 +107,7 @@ public class MainController {
 		 User user = userService.findUserById(userId);
 		 user.setJournalColor(journalColor);
     	 userService.updateUser(user);
-         return "redirect:/home";
+         return "redirect:/settings";
 	 }
 	 
 	 @RequestMapping(value="/createPost", method=RequestMethod.POST)
@@ -161,7 +161,7 @@ public class MainController {
 	     } else {
 	    	 post.setCreator(userService.findUserById((Long)session.getAttribute("userId"))); // need to cast 
 	    	 postService.updatePost(post);
-	         return "redirect:/posts";
+	         return "redirect:/posts/" + post.getId();
 	     }
 	 }
 

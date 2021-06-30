@@ -26,24 +26,51 @@
 	<div id="main" style="background-color: ${user.journalColor}">
 		<div id="notebookName">
 			<br><h4 id="journalTheme">Journal Theme</h4><br>
-			<form action="/user/${user.id}/process" method="post" id="settingForm">
-				<input type="hidden" name="_method" value="put">
-				<!-- instead of path, it's name -->
-				<label> JOURNAL COVER</label><br>
-				<select name="journalColor" class="form-select form-select-lg mb-3">
-					  <option selected value="#a292c7">Pick Color</option>
-					  <option value="#ff4d4d">Red</option>
-					  <option value="#ff80b3">Pink</option>
-					  <option value="#ffff99">Yellow</option>
-					  <option value="#73e600">Green</option>
-					  <option value="#66a3ff">Blue</option>
-					  <option value="#a292c7">Purple (default)</option>
-					  <option value="#a6a6a6">Gray</option>
-				</select>
-				<button type="submit" class="btn btn-link">Change</button>
-			</form>
+			<h6 id="journalCover"> JOURNAL COVER</h6>
+			<div id="colorButtons">
+				<form:form action="/user/${user.id}/process" method="post" id="newColor">
+					<input type="hidden" name="_method" value="put">
+				    <button name="journalColor" type="submit" class="btn btn-info" style="background-color: #ff4d4d" value="#ff4d4d"></button>
+				</form:form>
+				<form:form action="/user/${user.id}/process" method="post" id="newColor">
+					<input type="hidden" name="_method" value="put">
+				    <button name="journalColor" type="submit" class="btn btn-info" style="background-color: #ff80b3" value="#ff80b3"></button>
+				</form:form>
+				<form:form action="/user/${user.id}/process" method="post" id="newColor">
+					<input type="hidden" name="_method" value="put">
+				    <button name="journalColor" type="submit" class="btn btn-info" style="background-color: #ffaa80" value="#ffaa80"></button>
+				</form:form>
+				<form:form action="/user/${user.id}/process" method="post" id="newColor">
+					<input type="hidden" name="_method" value="put">
+				    <button name="journalColor" type="submit" class="btn btn-info" style="background-color: #ffff99" value="#ffff99"></button>
+				</form:form>
+				<form:form action="/user/${user.id}/process" method="post" id="newColor">
+					<input type="hidden" name="_method" value="put">
+				    <button name="journalColor" type="submit" class="btn btn-info" style="background-color: #73e600" value="#73e600"></button>
+				</form:form>
+				<form:form action="/user/${user.id}/process" method="post" id="newColor">
+					<input type="hidden" name="_method" value="put">
+				    <button name="journalColor" type="submit" class="btn btn-info" style="background-color: #70dbdb" value="#70dbdb"></button>
+				</form:form>
+				<form:form action="/user/${user.id}/process" method="post" id="newColor">
+					<input type="hidden" name="_method" value="put">
+				    <button name="journalColor" type="submit" class="btn btn-info" style="background-color: #66a3ff" value="#66a3ff"></button>
+				</form:form>
+				<form:form action="/user/${user.id}/process" method="post" id="newColor">
+					<input type="hidden" name="_method" value="put">
+				    <button name="journalColor" type="submit" class="btn btn-info" style="background-color: #a292c7" value="#a292c7"></button>
+				</form:form>
+				<form:form action="/user/${user.id}/process" method="post" id="newColor">
+					<input type="hidden" name="_method" value="put">
+				    <button name="journalColor" type="submit" class="btn btn-info" style="background-color: #a6a6a6" value="#a6a6a6"></button>
+				</form:form>
+				<form:form action="/user/${user.id}/process" method="post" id="newColor">
+					<input type="hidden" name="_method" value="put">
+				    <button name="journalColor" type="submit" class="btn btn-info" style="background-color: #000000" value="#000000"></button>
+				</form:form>
+			</div>
+			<br><br><br>
 		</div>
-		<br><br><br><br><br><br>
 	</div>
 </body>
 </html>

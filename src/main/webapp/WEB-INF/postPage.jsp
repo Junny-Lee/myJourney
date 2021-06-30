@@ -20,6 +20,7 @@
 </head>
 <body>
 	<div id="navBar">
+		<a href="/posts" class="aTags">Back</a>
 		<h2 id="logo"><a href="/home" id="logoTag">My Journey</a></h2>
 		<a href="/logout" class="aTags">Logout</a>
 	</div>
@@ -28,10 +29,10 @@
 			<div id="favBar">
 				<h3 id="title">${p.title}</h3>
 				<c:if test="${p.favorite == false}">
-					<a href="/posts/${postId}/favorited" id="favorite"><img src="https://img.icons8.com/ios/20/000000/star--v1.png"/></a>
+					<a href="/posts/${postId}/favorited" id="favorite"><img src="https://img.icons8.com/windows/20/000000/empty-flag--v1.png"/></a>
 				</c:if>
 				<c:if test="${p.favorite == true}">
-					<a href="/posts/${postId}/favorited" id="favorite"><img src="https://img.icons8.com/material-rounded/24/4a90e2/star--v1.png"/></a>
+					<a href="/posts/${postId}/favorited" id="favorite"><img src="https://img.icons8.com/color/20/000000/filled-flag.png"/></a>
 				</c:if>
 			</div><hr>
 			<p>
@@ -43,15 +44,13 @@
 					<fmt:formatDate type = "time" value="${p.updatedAt}" pattern="h:mm aa"/>
 				</c:if>
 			</p>
-			<%-- <c:if test="${not empty p.updatedAt}">
-				<p>
-					Last update: <fmt:formatDate value="${p.updatedAt}" pattern="EEE. MM/dd/yyyy"/> at
-					<fmt:formatDate type = "time" value="${p.updatedAt}" pattern="h:mm aa"/>
-				</p>
-			</c:if> --%>
 			<hr>
 			<div id="text">
 				<p>${p.text}</p>
+			</div>
+			<div id="editDelete">
+				<a href="/posts/${p.id}/edit">Edit</a> &nbsp|&nbsp
+				<a href="/posts/${p.id}/delete">Delete</a>
 			</div>
 		</div>
 	</div>
