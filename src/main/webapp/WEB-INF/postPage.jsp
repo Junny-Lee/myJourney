@@ -42,7 +42,9 @@
 				<c:if test="${not empty p.updatedAt}">
 					Last update: <fmt:formatDate value="${p.updatedAt}" pattern="EEE. MM/dd/yyyy"/> at
 					<fmt:formatDate type = "time" value="${p.updatedAt}" pattern="h:mm aa"/>
-				</c:if>
+				</c:if>&nbsp&nbsp | &nbsp&nbsp
+				<c:if test="${p.personal == true }">private</c:if>
+       			<c:if test="${p.personal == false }">public</c:if>
 			</p>
 			<hr>
 			<div id="text">

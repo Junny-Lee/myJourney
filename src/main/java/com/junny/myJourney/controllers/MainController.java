@@ -230,5 +230,19 @@ public class MainController {
 		 return "postPage.jsp";
 	 }
 	 
+	 @RequestMapping("/posts/{postId}/statusChange")
+	 public String changeStatus(HttpSession session, Model model, @PathVariable("postId") Long postId) {
+		 Long userId = (Long) session.getAttribute("userId");
+		 User u = userService.findUserById(userId);
+		 Post p = postService.findPost(postId);
+		 if (p.isPersonal() == false) {p.setPersonal(true);}
+		 else {p.setPersonal(false);}
+		 model.addAttribute("post", new Post()); // look at this line!
+		 model.addAttribute("user", u);
+		 model.addAttribute("p", p);
+		 postService.createPost(p); // save the favorite because create method saves
+		 return "allPosts.jsp";
+	 }
+	 
 }
 

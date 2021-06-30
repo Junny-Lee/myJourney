@@ -41,7 +41,7 @@ body{
 }
 #subheader{
 	display: flex;
-	justify-content: left;
+	justify-content: space-between;
 }
 #searchBarForm{
 	display: flex;

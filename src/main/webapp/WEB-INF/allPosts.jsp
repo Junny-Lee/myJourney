@@ -41,6 +41,9 @@
 				<c:if test = "${countPosts > 1}">
 					<p>${countPosts} total entries</p>
 				</c:if>
+				<form:form action="/newPost" method="post" modelAttribute="post" id="newForm">
+				    <button type="submit" class="btn btn-primary w-100">Public Board</button>
+				</form:form>
 			</div>
 			<div id="searchBar">
 		         <form action="/search" method="post" id="searchBarForm">
@@ -74,7 +77,14 @@
 				            </td>
 				            <td>
 			            		<p>
-			            			Private
+			            			<c:if test="${p.personal == true }">			            			
+			            				private
+			            				<br><a href="/posts/${p.id}/statusChange">make public</a>
+			            			</c:if>
+			            			<c:if test="${p.personal == false }">			            			
+			            				public
+			            				<br><a href="/posts/${p.id}/statusChange">make private</a>
+			            			</c:if>
 				            		<%-- <a href="/posts/${p.id}/edit">Edit</a> &nbsp|&nbsp
 									<a href="/posts/${p.id}/delete">Delete</a> --%>
 			            		</p>

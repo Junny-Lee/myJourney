@@ -29,6 +29,7 @@ public class Post {
     private String text;
     
     private boolean favorite;
+    private boolean personal; // if personal is true = private; if personal is false = public
     
     @Column(updatable=false)
     private Date createdAt;
@@ -39,7 +40,8 @@ public class Post {
     private User creator;
     
     public Post() {
-    	this.favorite = false; // defaults to false
+    	this.favorite = false; // defaults to false 
+    	this.personal = true; // default to private
     }
     
     // other getters and setters removed for brevity
@@ -107,5 +109,12 @@ public class Post {
 	public void setFavorite(boolean favorite) {
 		this.favorite = favorite;
 	}
-	
+
+	public boolean isPersonal() {
+		return personal;
+	}
+
+	public void setPersonal(boolean personal) {
+		this.personal = personal;
+	}
 }
