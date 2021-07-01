@@ -74,7 +74,13 @@
 				            	<fmt:formatDate value="${p.createdAt}" pattern="EEE. MM/dd/yyyy"/><br>
 				            	<fmt:formatDate type = "time" value="${p.createdAt}" pattern="h:mm aa"/>
 				            </td>
-				            <td><c:out value="${p.creator.firstName} ${p.creator.lastName}"/></td>
+				           <%--  <td><c:out value="${p.creator.firstName} ${p.creator.lastName}"/></td> --%>
+				           <td>
+				           		<c:if test="${p.creator.id == user.id}">Me</c:if>
+				           		<c:if test="${p.creator.id != user.id}">
+				           			<c:out value="${p.creator.firstName} ${p.creator.lastName}"/>
+				           		</c:if>
+				           </td>
 				        </tr>
 			        </c:forEach>
 			    </tbody>

@@ -56,7 +56,7 @@
 			        <tr class="border-bottom border-danger">
 			            <th scope="col" style="width: 50%">Entry Title</th>
 			            <th scope="col">Date</th>
-			            <th scope="col" style="text-align: center">Action / Status</th>
+			            <th scope="col" style="text-align: center">Status</th>
 			        </tr>
 			    </thead>
 			    <tbody>
@@ -67,13 +67,17 @@
 				            	<p id="entryText"><c:out value="${p.text}"/></p>
 				            </td>
 				            <td id="entryDate">
-				            	<fmt:formatDate value="${p.createdAt}" pattern="EEE. MM/dd/yyyy"/> at
+				            	<fmt:formatDate value="${p.createdAt}" pattern="EEE. MM/dd/yyyy"/><br>
 				            	<fmt:formatDate type = "time" value="${p.createdAt}" pattern="h:mm aa"/>
 				            </td>
-				            <td style="text-align: center; padding-left: 0px">
+				            <td>
 			            		<p>
-				            		<a href="/posts/${p.id}/edit">Edit</a> &nbsp|&nbsp
-									<a href="/posts/${p.id}/delete">Delete</a>
+			            			<c:if test="${p.personal == true }">			            			
+			            				<a href="/posts/${p.id}/statusChange">private <img src="https://img.icons8.com/material-two-tone/24/000000/lock--v1.png"/></a>
+			            			</c:if>
+			            			<c:if test="${p.personal == false }">			            			
+			            				<a href="/posts/${p.id}/statusChange"> public <img src="https://img.icons8.com/ios/24/000000/conference-call--v1.png"/></a>
+			            			</c:if>
 			            		</p>
 				            </td>
 				        </tr>
