@@ -39,7 +39,6 @@
 		   	<div class="form-group col-md-12">
 		        <form:input path="text" type="text" class="form-control" id="text" placeholder="Write text here"/>
 		    </div>
-		   <!--  <button type="submit" class="btn btn-primary">Save</button> -->
 		</form:form>
 	</div>
 </body>

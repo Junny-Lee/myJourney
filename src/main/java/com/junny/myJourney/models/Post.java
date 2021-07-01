@@ -29,7 +29,10 @@ public class Post {
     private String text;
     
     private boolean favorite;
-    private boolean personal; // personal = 1 = private; personal = 0 = public
+    
+    // personal = 1 (true) = private
+    // personal = 0 (false) = public
+    private boolean personal; 
     
     @Column(updatable=false)
     private Date createdAt;

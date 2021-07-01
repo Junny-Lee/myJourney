@@ -75,18 +75,6 @@
 				            	<fmt:formatDate type = "time" value="${p.createdAt}" pattern="h:mm aa"/>
 				            </td>
 				            <td><c:out value="${p.creator.firstName} ${p.creator.lastName}"/></td>
-<%-- 				            <td>
-			            		<p>
-			            			<c:if test="${p.personal == true }">			            			
-			            				private
-			            				<br><a href="/posts/${p.id}/statusChange">make public</a>
-			            			</c:if>
-			            			<c:if test="${p.personal == false }">			            			
-			            				public
-			            				<br><a href="/posts/${p.id}/statusChange">make private</a>
-			            			</c:if>
-			            		</p>
-				            </td> --%>
 				        </tr>
 			        </c:forEach>
 			    </tbody>

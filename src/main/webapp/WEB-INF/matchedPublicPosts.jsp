@@ -83,6 +83,3 @@
 </html>
 
 
-<!-- https://www.tutorialspoint.com/jsp/jstl_format_formatdate_tag.htm -->
-
-

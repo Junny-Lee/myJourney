@@ -221,10 +221,10 @@ public class MainController {
 	 @RequestMapping("/search/public/{search}") // READ matched posts
 	 public String viewSearchPublic(Model model,
 			 @PathVariable(value = "search") String search, HttpSession session) {
-		 ArrayList<Post> posts = postService.allMatchedPublicPosts(search); // changed this from List to ArrayList
-	     model.addAttribute("posts", posts);
-	     Long userId = (Long) session.getAttribute("userId");
+		 Long userId = (Long) session.getAttribute("userId");
 		 User u = userService.findUserById(userId);
+		 ArrayList<Post> posts = postService.allMatchedPublicPosts(search, u); // changed this from List to ArrayList
+	     model.addAttribute("posts", posts);
 		 model.addAttribute("user", u);
 		 int countPosts = posts.size();
 		 model.addAttribute("countPosts", countPosts);
@@ -263,6 +263,20 @@ public class MainController {
 		 model.addAttribute("p", p);
 		 postService.createPost(p); // save the favorite because create method saves
 		 return "redirect:/posts";
+	 }
+	 
+	 @RequestMapping("/posts/{postId}/statusChangeFromPost")
+	 public String changeStatusFromPostPage(HttpSession session, Model model, @PathVariable("postId") Long postId) {
+		 Long userId = (Long) session.getAttribute("userId");
+		 User u = userService.findUserById(userId);
+		 Post p = postService.findPost(postId);
+		 if (p.isPersonal() == false) {p.setPersonal(true);}
+		 else {p.setPersonal(false);}
+		 model.addAttribute("post", new Post()); // look at this line!
+		 model.addAttribute("user", u);
+		 model.addAttribute("p", p);
+		 postService.createPost(p); // save the favorite because create method saves
+		 return "redirect:/posts/" + postId;
 	 }
 	 
 	 @RequestMapping("/posts/public")
