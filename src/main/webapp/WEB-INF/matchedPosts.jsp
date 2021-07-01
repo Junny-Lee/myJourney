@@ -41,7 +41,7 @@
 				<c:if test = "${countPosts > 1}">
 					<p>${countPosts} matched entries</p>
 				</c:if>
-				<p>&nbsp | &nbsp <a href="/posts">Back to all entries</a></p>
+				<p><a href="/posts">Back to all entries</a></p>
 			</div>
 			<div id="searchBar">
 		         <form action="/search" method="post" id="searchBarForm">

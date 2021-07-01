@@ -43,8 +43,8 @@
 					Last update: <fmt:formatDate value="${p.updatedAt}" pattern="EEE. MM/dd/yyyy"/> at
 					<fmt:formatDate type = "time" value="${p.updatedAt}" pattern="h:mm aa"/>
 				</c:if>&nbsp&nbsp | &nbsp&nbsp
-				<c:if test="${p.personal == true }">private</c:if>
-       			<c:if test="${p.personal == false }">public</c:if>
+				<c:if test="${p.personal == true }"> <img src="https://img.icons8.com/material-two-tone/24/000000/lock--v1.png"/> </c:if>
+       			<c:if test="${p.personal == false }"> <img src="https://img.icons8.com/ios/24/000000/conference-call--v1.png"/></c:if>
 			</p>
 			<hr>
 			<div id="text">

@@ -76,11 +76,11 @@
 				            <td>
 			            		<p>
 			            			<c:if test="${p.personal == true }">			            			
-			            				private
+			            				private <img src="https://img.icons8.com/material-two-tone/24/000000/lock--v1.png"/>
 			            				<br><a href="/posts/${p.id}/statusChange">make public</a>
 			            			</c:if>
 			            			<c:if test="${p.personal == false }">			            			
-			            				public
+			            				public <img src="https://img.icons8.com/ios/24/000000/conference-call--v1.png"/>
 			            				<br><a href="/posts/${p.id}/statusChange">make private</a>
 			            			</c:if>
 				            		<%-- <a href="/posts/${p.id}/edit">Edit</a> &nbsp|&nbsp

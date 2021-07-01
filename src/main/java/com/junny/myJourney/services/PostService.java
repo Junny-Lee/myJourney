@@ -85,11 +85,11 @@ public class PostService {
 		 ArrayList<Post> output = new ArrayList<Post>(); // did not let us have List
 		 HashMap<Long,Post> map = new HashMap<Long,Post>(); // HashMap = dictionary of Java (dictionaries were in Python and JS)
 		 List<Post> matchedPublicPosts = postRepository.findAllPublicPosts();
-		 System.out.println("before");
-		 System.out.println(matchedPublicPosts);
+//		 System.out.println("before");
+//		 System.out.println(matchedPublicPosts);
 		 matchedPublicPosts = postRepository.findByTextContaining(search);
-		 System.out.println("after");
-		 System.out.println(matchedPublicPosts);
+//		 System.out.println("after");
+//		 System.out.println(matchedPublicPosts);
 		 List<Post> matchedPublicPostsInText = postRepository.findAllPublicPosts();
 		 matchedPublicPostsInText = postRepository.findByTitleContaining(search);
 		 for (int i = 0; i <matchedPublicPostsInText.size(); i++) {

@@ -20,7 +20,7 @@
 </head>
 <body>
 	<div id="navBar">
-		<a href="/back" class="aTags">Back</a>
+		<a href="/posts/public" class="aTags">Back</a>
 		<h2 id="logo"><a href="/home" id="logoTag">Our Journey</a></h2>
 		<a href="/logout" class="aTags">Logout</a>
 	</div>
@@ -41,7 +41,7 @@
 				<c:if test = "${countPosts > 1}">
 					<p>${countPosts} matched entries</p>
 				</c:if>
-				<p><a href="/posts">Back to all entries</a></p>
+				<p><a href="/posts/public">Back to all entries</a></p>
 			</div>
 			<div id="searchBar">
 		         <form action="/search/public" method="post" id="searchBarForm">
@@ -55,8 +55,8 @@
 			    <thead>
 			        <tr class="border-bottom border-danger">
 			            <th scope="col" style="width: 50%">Entry Title</th>
-			            <th scope="col">Date</th>
-			            <th scope="col" style="text-align: center">Action / Status</th>
+			            <th scope="col">Created</th>
+			            <th scope="col">Creator</th>
 			        </tr>
 			    </thead>
 			    <tbody>
@@ -67,15 +67,10 @@
 				            	<p id="entryText"><c:out value="${p.text}"/></p>
 				            </td>
 				            <td id="entryDate">
-				            	<fmt:formatDate value="${p.createdAt}" pattern="EEE. MM/dd/yyyy"/> at
+				            	<fmt:formatDate value="${p.createdAt}" pattern="EEE. MM/dd/yyyy"/><br>
 				            	<fmt:formatDate type = "time" value="${p.createdAt}" pattern="h:mm aa"/>
 				            </td>
-				            <td style="text-align: center; padding-left: 0px">
-			            		<p>
-				            		<a href="/posts/${p.id}/edit">Edit</a> &nbsp|&nbsp
-									<a href="/posts/${p.id}/delete">Delete</a>
-			            		</p>
-				            </td>
+				            <td><c:out value="${p.creator.firstName} ${p.creator.lastName}"/></td>
 				        </tr>
 			        </c:forEach>
 			    </tbody>
