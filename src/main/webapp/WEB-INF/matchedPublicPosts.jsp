@@ -16,18 +16,18 @@
 <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <!-- link css -->
-<link rel="stylesheet" type="text/css" href="/css/allPosts.css">
+<link rel="stylesheet" type="text/css" href="/css/publicPosts.css">
 </head>
 <body>
 	<div id="navBar">
-		<a href="/home" class="aTags">Home</a>
-		<h2 id="logo"><a href="/home" id="logoTag">My Journey</a></h2>
+		<a href="/back" class="aTags">Back</a>
+		<h2 id="logo"><a href="/home" id="logoTag">Our Journey</a></h2>
 		<a href="/logout" class="aTags">Logout</a>
 	</div>
 	<div id="main">
 		<div id="header">
 			<div id="mainHeader">
-				<h2 id="welcome"><c:out value="${user.firstName}"/>'s Journal</h2>
+				<h2 id="welcome">Public Journal</h2>
 				<div id="newEntryDiv">
 					<form:form action="/newPost" method="post" modelAttribute="post" id="newForm">
 					    <button type="submit" class="btn btn-primary w-100">+ New Entry</button>
@@ -36,15 +36,15 @@
 			</div>
 			<div id="subheader">
 				<c:if test = "${countPosts < 2}">
-					<p>${countPosts} total entry</p>
+					<p>${countPosts} matched entry</p>
 				</c:if>
 				<c:if test = "${countPosts > 1}">
-					<p>${countPosts} total entries</p>
+					<p>${countPosts} matched entries</p>
 				</c:if>
-				<a href="/posts/public">Public Board</a>
+				<p><a href="/posts">Back to all entries</a></p>
 			</div>
 			<div id="searchBar">
-		         <form action="/search" method="post" id="searchBarForm">
+		         <form action="/search/public" method="post" id="searchBarForm">
 		         	<input type="search" class="form-control w-25" name="search" placeholder="Search journal"/>
 				    <button type="submit" class="btn btn-primary"><img src="/images/magnifyingGlass.png"/></button>
 				</form>
@@ -55,36 +55,25 @@
 			    <thead>
 			        <tr class="border-bottom border-danger">
 			            <th scope="col" style="width: 50%">Entry Title</th>
-			            <th scope="col">Created</th>
-			            <th scope="col">Status</th>
+			            <th scope="col">Date</th>
+			            <th scope="col" style="text-align: center">Action / Status</th>
 			        </tr>
 			    </thead>
 			    <tbody>
-			        <c:forEach items="${user.events}" var="p">
+			        <c:forEach items="${posts}" var="p">
 				        <tr>
 				            <td>
 				            	<a href="/posts/${p.id}"><c:out value="${p.title}"/></a>
-				            	<c:if test="${p.favorite == true}">
-				            		<img src="https://img.icons8.com/color/20/000000/filled-flag.png"/>
-				            	</c:if>
 				            	<p id="entryText"><c:out value="${p.text}"/></p>
 				            </td>
 				            <td id="entryDate">
-				            	<fmt:formatDate value="${p.createdAt}" pattern="EEE. MM/dd/yyyy"/><br>
+				            	<fmt:formatDate value="${p.createdAt}" pattern="EEE. MM/dd/yyyy"/> at
 				            	<fmt:formatDate type = "time" value="${p.createdAt}" pattern="h:mm aa"/>
 				            </td>
-				            <td>
+				            <td style="text-align: center; padding-left: 0px">
 			            		<p>
-			            			<c:if test="${p.personal == true }">			            			
-			            				private
-			            				<br><a href="/posts/${p.id}/statusChange">make public</a>
-			            			</c:if>
-			            			<c:if test="${p.personal == false }">			            			
-			            				public
-			            				<br><a href="/posts/${p.id}/statusChange">make private</a>
-			            			</c:if>
-				            		<%-- <a href="/posts/${p.id}/edit">Edit</a> &nbsp|&nbsp
-									<a href="/posts/${p.id}/delete">Delete</a> --%>
+				            		<a href="/posts/${p.id}/edit">Edit</a> &nbsp|&nbsp
+									<a href="/posts/${p.id}/delete">Delete</a>
 			            		</p>
 				            </td>
 				        </tr>

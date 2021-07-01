@@ -21,4 +21,15 @@ public interface PostRepository extends CrudRepository<Post, Long>{
 	// sort by date ASC
 	@Query(value = "SELECT * FROM posts ORDER BY created_at ASC", nativeQuery = true)
 	List<Post> postsAscByDate();
+	
+	// personal = 1 = private; personal = 0 = public
+	@Query(value = "SELECT * FROM posts WHERE personal=0", nativeQuery = true)
+	List<Post> findAllPublicPosts();
+	
+//	// get one user's posts that contains the searched string in title or text
+//	@Query(value="SELECT * FROM posts WHERE user_id = ?1 AND (text LIKE %?2% OR text LIKE %?3 OR text LIKE ?4%)")
+//	List<Post> findOneUsersPostsBySearchOnText(Long id, String searc1h, String search2, String search3);
+//	
+//	@Query(value="SELECT * FROM posts WHERE user_id = ?1 AND (title LIKE %?2% OR title LIKE %?3 OR title LIKE ?4%)")
+//	List<Post> findOneUsersPostsBySearchOnTitle(Long id, String searc1h, String search2, String search3);
 }

@@ -84,7 +84,8 @@ public class MainController {
 		 //List<Post> posts = postService.allPosts();
 		 // dont need this now, but might later for public space!!!
 		 List<Post> posts = postService.allPostsDesc();
-		 int countPosts = posts.size();
+//		 int countPosts = posts.size();
+		 int countPosts = u.getEvents().size();
 		 model.addAttribute("posts", posts);
 		 model.addAttribute("post", new Post()); // look at this line!
 		 model.addAttribute("user", u);
@@ -200,19 +201,39 @@ public class MainController {
 	 @RequestMapping("/search/{search}") // READ matched posts
 	 public String viewSearch(Model model,
 			 @PathVariable(value = "search") String search, HttpSession session) {
-	     ArrayList<Post> posts = postService.allMatchedPosts(search); // changed this from List to ArrayList
-	     model.addAttribute("posts", posts);
-	     Long userId = (Long) session.getAttribute("userId");
+		 Long userId = (Long) session.getAttribute("userId");
 		 User u = userService.findUserById(userId);
+//	     ArrayList<Post> posts = postService.allMatchedPosts(userId,search, search, search); // changed this from List to ArrayList
+		 ArrayList<Post> posts = postService.allMatchedPosts(search, u);
+		 model.addAttribute("posts", posts);
 		 model.addAttribute("user", u);
 		 int countPosts = posts.size();
 		 model.addAttribute("countPosts", countPosts);
 	     return "/matchedPosts.jsp";
 	 }
 	 
-	 @PostMapping("/search") // READ ALL MATCHED SONGS // short hand of post
+	 @PostMapping("/search") // READ ALL MATCHED POSTS
 	 public String search(@RequestParam(value = "search") String search) {
 	     return "redirect:/search/" + search;
+	 }
+	 
+	 // this is new. the same functionality as search bar for private use, but for only public posts
+	 @RequestMapping("/search/public/{search}") // READ matched posts
+	 public String viewSearchPublic(Model model,
+			 @PathVariable(value = "search") String search, HttpSession session) {
+		 ArrayList<Post> posts = postService.allMatchedPublicPosts(search); // changed this from List to ArrayList
+	     model.addAttribute("posts", posts);
+	     Long userId = (Long) session.getAttribute("userId");
+		 User u = userService.findUserById(userId);
+		 model.addAttribute("user", u);
+		 int countPosts = posts.size();
+		 model.addAttribute("countPosts", countPosts);
+	     return "/matchedPublicPosts.jsp";
+	 }
+	 
+	 @PostMapping("/search/public") // READ ALL MATCHED POSTS
+	 public String searchPublic(@RequestParam(value = "search") String search) {
+	     return "redirect:/search/public/" + search;
 	 }
 	 
 	 @RequestMapping("/posts/{postId}/favorited")
@@ -241,8 +262,23 @@ public class MainController {
 		 model.addAttribute("user", u);
 		 model.addAttribute("p", p);
 		 postService.createPost(p); // save the favorite because create method saves
-		 return "allPosts.jsp";
+		 return "redirect:/posts";
 	 }
 	 
+	 @RequestMapping("/posts/public")
+	 public String publicPosts(HttpSession session, Model model) {
+		 Long userId = (Long) session.getAttribute("userId");
+		 User u = userService.findUserById(userId);
+		 List<Post> publicPosts = postService.allPublicPosts();
+		 int countPosts = publicPosts.size();
+//		 if (p.isPersonal() == false) {p.setPersonal(true);}
+//		 else {p.setPersonal(false);}
+		 model.addAttribute("post", new Post()); // look at this line!
+		 model.addAttribute("user", u);
+		 model.addAttribute("publicPosts", publicPosts);
+		 model.addAttribute("countPosts", countPosts);
+//		 postService.createPost(p); // save the favorite because create method saves
+		 return "publicPosts.jsp";
+	 }
 }
 
