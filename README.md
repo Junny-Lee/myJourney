@@ -16,7 +16,7 @@ Once logged in, the user can see his/her journal cover (default journal color is
 
 <img src="https://github.com/Junny-Lee/myJourney/blob/main/src/main/resources/static/screenshots/frontCoverJournalDefault.png" width="770">
 
-When the _list icon_ is clicked, the user can see all of the journal entries in one place. From this page, the user can add a new entry, search for entries by keyword(s), see which entries are important/flagged, and click into individual entries.
+When the _list icon_ is clicked, the user can see all of the journal entries in one place. From this page, the user can add a new entry, search for entries by keyword(s), see which entries are important/flagged, click into individual entries, and go to the _Public Board_.
 
 <img src="https://github.com/Junny-Lee/myJourney/blob/main/src/main/resources/static/screenshots/allPosts.png" width="770">
 
@@ -32,7 +32,11 @@ Clicking into one of the entries takes you to a page that looks like this:
 
 <img src="https://github.com/Junny-Lee/myJourney/blob/main/src/main/resources/static/screenshots/flaggedPost.png" width="770">
 
-Back on the home page (front of the journal), the user can click into the _settings icon_,:
+Let's now go to the Public Board, where posts marked _public_ (not _private_) from any users can be seen. Here the signed in user can go back to your private space by pressing on _Personal Board_ link near the top-right hand corner. Note that the last post in this image is a public post by a different user.
+
+<img src="https://github.com/Junny-Lee/myJourney/blob/main/src/main/resources/static/screenshots/ourJourney.png" width="770">
+
+Back on the home page (front of the journal), the user can click into the _settings icon_:
 
 <img src="https://github.com/Junny-Lee/myJourney/blob/main/src/main/resources/static/screenshots/journalColorDefault.png" width="770">
 
