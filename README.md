@@ -16,11 +16,11 @@ Once logged in, the user can see his/her journal cover (default journal color is
 
 <img src="https://github.com/Junny-Lee/myJourney/blob/main/src/main/resources/static/screenshots/frontCoverJournalDefault.png" width="770">
 
-When the _list icon_ is clicked, the user can see all of the journal entries in one place. From this page, the user can add a new entry, search for entries by keyword(s), see which entries are important/flagged, click into individual entries, and go to the _Public Board_.
+When the _list icon_ is clicked, the user can see all of the journal entries in one place. From this page, the user can add a new entry, search for entries by keyword(s), see which entries are important/flagged, flip between private and public, click into individual entries, and go to the _Public Board_.
 
 <img src="https://github.com/Junny-Lee/myJourney/blob/main/src/main/resources/static/screenshots/allPosts.png" width="770">
 
-For example, when the user searches for "flag" in the search bar, two entries are matched.
+For example, when the user searches for "important" in the search bar, there are two matched entries. The search matches by the title and/or text of the journal entry.
 
 <img src="https://github.com/Junny-Lee/myJourney/blob/main/src/main/resources/static/screenshots/matchedEntries.png" width="770">
 
