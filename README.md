@@ -20,7 +20,7 @@ When the _list icon_ is clicked, the user can see all of the journal entries in 
 
 <img src="https://github.com/Junny-Lee/myJourney/blob/main/src/main/resources/static/screenshots/allPosts.png" width="770">
 
-For example, when the user searches for "important" in the search bar, there are two matched entries. The search matches by the title and/or text of the journal entry.
+For example, when the user searches for "important" in the search bar, there are two matched entries. The search matches by the title and/or text of the journal entry (removes duplicates).
 
 <img src="https://github.com/Junny-Lee/myJourney/blob/main/src/main/resources/static/screenshots/matchedEntries.png" width="770">
 
@@ -28,19 +28,19 @@ Creating a new entry is easy. Just click on one of the _+ New Entry_ buttons on 
 
 <img src="https://github.com/Junny-Lee/myJourney/blob/main/src/main/resources/static/screenshots/newPost.png" width="770">
 
-Clicking into one of the entries takes you to a page that looks like this:
+Clicking into one of the journal entries takes you to a page that looks like this:
 
 <img src="https://github.com/Junny-Lee/myJourney/blob/main/src/main/resources/static/screenshots/flaggedPost.png" width="770">
 
-Let's now go to the Public Board, where posts marked _public_ (not _private_) from any users can be seen. Here the signed in user can go back to your private space by pressing on _Personal Board_ link near the top-right hand corner. Note that the last post in this image is a public post by a different user.
+Let's now go to the _Public Board_, where posts marked _public_ (not _private_) from any users can be read. Here the signed in user can go back to his/her private space by pressing on the _Personal Board_ link near the top-right hand corner. Note that the last post shown in this image is a public post by a different user.
 
 <img src="https://github.com/Junny-Lee/myJourney/blob/main/src/main/resources/static/screenshots/ourJourney.png" width="770">
 
-Back on the home page (front of the journal), the user can click into the _settings icon_:
+Back on the home page (front of the journal), the user can click into the _settings icon_ to change the color of the journal cover:
 
 <img src="https://github.com/Junny-Lee/myJourney/blob/main/src/main/resources/static/screenshots/journalColorDefault.png" width="770">
 
-The user can click on any of the colors to choose from and the journal cover color will change accordingly. When red is clicked:
+The user can click on any of the color blocks to choose from and the journal cover color will change accordingly. When red is clicked:
 
 <img src="https://github.com/Junny-Lee/myJourney/blob/main/src/main/resources/static/screenshots/journalColorRed.png" width="770">
 
