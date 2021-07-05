@@ -12,7 +12,7 @@ For our purposes, let's sign in with my pre-made account.
 
 <img src="https://github.com/Junny-Lee/myJourney/blob/main/src/main/resources/static/screenshots/login.png" width="770">
 
-Once logged in, the user can see his/her journal cover (default journal color is purple, but as shown later, the color can be changed in the settings):
+Once logged in, the user can see his/her journal cover (default journal color is purple, but as shown later, the [color]{color="red"} can be changed in the settings):
 
 <img src="https://github.com/Junny-Lee/myJourney/blob/main/src/main/resources/static/screenshots/frontCoverJournalDefault.png" width="770">
 
