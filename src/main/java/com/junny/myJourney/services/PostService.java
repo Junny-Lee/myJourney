@@ -71,9 +71,6 @@ public class PostService {
 	 
 	 // created this one for DESC
 	 public List<Post> allPostsDesc(){
-//		 for (int i  = 0; i < postRepository.postsDescByDate().size(); i++) {
-//			 System.out.println(postRepository.postsDescByDate().get(i).getCreatedAt());
-//		 }
 		 return postRepository.postsDescByDate();
 	 }
 	 
