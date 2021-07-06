@@ -25,7 +25,6 @@
 	</div>
 	<div id="main">
 		<form:form action="/posts/${post.id}/process" method="post" modelAttribute="post" id="newForm">
-			<%-- <form:hidden value="${post.creator}" path="creator"/> --%>
 			<input type="hidden" name="_method" value="put">
 			<div class="form-group col-md-12">
 		        <form:input path="title" type="text" class="form-control" id="title" placeholder="Entry Title"/>
@@ -38,7 +37,6 @@
 			</p>
 		    <hr>
 		   	<div class="form-group col-md-12">
-		        <%-- <form:label path="text" for="text" class="form-label">Text</form:label> --%>
 		        <form:input path="text" type="text" class="form-control" id="text"/>
 		    </div>
 		</form:form>

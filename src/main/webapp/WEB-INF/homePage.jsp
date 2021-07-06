@@ -23,7 +23,6 @@
 			<a href="/logout" class="aTags">Logout</a>
 		</div>
 	</div>
-	<!-- <div id="main"> -->
 	<div id="main" style="background-color: ${user.journalColor}">
 		<div id="notebookName">
 			<h2 id="welcome"><c:out value="${user.firstName}"/>'s Journal</h2>
@@ -39,24 +38,6 @@
 				</form:form>
 			</div><br>
 		</div>
-<%-- 		<div>
-		<!-- don't need to use modelAttribute because validations of user comes with it -->
-			<form action="/user/${user.id}/process" method="post" id="newForm">
-				<input type="hidden" name="_method" value="put">
-				<!-- instead of path, it's name -->
-				<select name="journalColor" class="form-select form-select-lg mb-3">
-					  <option selected value="#a292c7">Pick Color</option>
-					  <option value="#ff4d4d">Red</option>
-					  <option value="#ff80b3">Pink</option>
-					  <option value="#ffff99">Yellow</option>
-					  <option value="#73e600">Green</option>
-					  <option value="#66a3ff">Blue</option>
-					  <option value="#a292c7">Purple (default)</option>
-					  <option value="#a6a6a6">Gray</option>
-				</select>
-				<button type="submit" class="btn btn-link">Change</button>
-			</form>
-		</div> --%>
 	</div>
 </body>
 </html>
