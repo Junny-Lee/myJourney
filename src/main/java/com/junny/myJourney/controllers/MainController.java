@@ -81,10 +81,7 @@ public class MainController {
 	     // get user from session, save them in the model and return the home page
 		 Long userId = (Long) session.getAttribute("userId");
 		 User u = userService.findUserById(userId);
-		 //List<Post> posts = postService.allPosts();
-		 // dont need this now, but might later for public space!!!
 		 List<Post> posts = postService.allPostsDesc();
-//		 int countPosts = posts.size();
 		 int countPosts = u.getEvents().size();
 		 model.addAttribute("posts", posts);
 		 model.addAttribute("post", new Post()); // look at this line!
@@ -95,8 +92,6 @@ public class MainController {
 	 
 	 @RequestMapping("/logout")
 	 public String logout(HttpSession session) {
-	     // invalidate session
-	     // redirect to login page
 		 session.invalidate();
 		 return "redirect:/";
 	 }
@@ -174,7 +169,6 @@ public class MainController {
 	 
 	 @RequestMapping("/home")
 	 public String index(HttpSession session, Model model) {
-	     // get user from session, save them in the model and return the home page
 		 Long userId = (Long) session.getAttribute("userId");
 		 User u = userService.findUserById(userId);
 		 List<Post> posts = postService.allPosts();
@@ -238,7 +232,6 @@ public class MainController {
 	 
 	 @RequestMapping("/posts/{postId}/favorited")
 	 public String favorite(HttpSession session, Model model, @PathVariable("postId") Long postId) {
-	     // get user from session, save them in the model and return the home page
 		 Long userId = (Long) session.getAttribute("userId");
 		 User u = userService.findUserById(userId);
 		 Post p = postService.findPost(postId);
@@ -285,13 +278,10 @@ public class MainController {
 		 User u = userService.findUserById(userId);
 		 List<Post> publicPosts = postService.allPublicPosts();
 		 int countPosts = publicPosts.size();
-//		 if (p.isPersonal() == false) {p.setPersonal(true);}
-//		 else {p.setPersonal(false);}
 		 model.addAttribute("post", new Post()); // look at this line!
 		 model.addAttribute("user", u);
 		 model.addAttribute("publicPosts", publicPosts);
 		 model.addAttribute("countPosts", countPosts);
-//		 postService.createPost(p); // save the favorite because create method saves
 		 return "publicPosts.jsp";
 	 }
 }
