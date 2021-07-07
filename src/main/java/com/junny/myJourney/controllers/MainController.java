@@ -192,14 +192,12 @@ public class MainController {
 	 }
 	 
 	 // this is new: added search functionality
-	 @RequestMapping("/search/{search}") // READ matched posts
+	 @RequestMapping("/search/{search}") 
 	 public String viewSearch(Model model,
 			 @PathVariable(value = "search") String search, HttpSession session) {
 		 Long userId = (Long) session.getAttribute("userId");
 		 User u = userService.findUserById(userId);
-//	     ArrayList<Post> posts = postService.allMatchedPosts(userId,search, search, search); // changed this from List to ArrayList
-		 ArrayList<Post> posts = postService.allMatchedPosts(search, u);
-		 model.addAttribute("posts", posts);
+		 ArrayList<Post> posts = postService.allMatchedPosts(search, u); // changed this from List to ArrayList
 		 model.addAttribute("user", u);
 		 int countPosts = posts.size();
 		 model.addAttribute("countPosts", countPosts);
@@ -212,7 +210,7 @@ public class MainController {
 	 }
 	 
 	 // this is new. the same functionality as search bar for private use, but for only public posts
-	 @RequestMapping("/search/public/{search}") // READ matched posts
+	 @RequestMapping("/search/public/{search}") 
 	 public String viewSearchPublic(Model model,
 			 @PathVariable(value = "search") String search, HttpSession session) {
 		 Long userId = (Long) session.getAttribute("userId");
