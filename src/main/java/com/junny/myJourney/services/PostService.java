@@ -101,7 +101,6 @@ public class PostService {
 	 public Post updatePost(Long id, String title, String text) {
 	 	Post post = findPost(id);
 	 	post.setTitle(title);
-//	 	post.setDate(date);
 	 	post.setText(text);
 	 	return postRepository.save(post);
 	 }
