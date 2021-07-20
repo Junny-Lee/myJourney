@@ -27,10 +27,10 @@ public class PostService {
 	
 	 // created this one for search!
 	 public ArrayList<Post> allMatchedPosts(String search, User user){
-		 ArrayList<Post> output = new ArrayList<Post>(); // did not let us have List
+		 ArrayList<Post> output = new ArrayList<Post>(); // did not let us have List; can't instantiate List
 		 HashMap<Long,Post> map = new HashMap<Long,Post>(); // HashMap = dictionary of Java (dictionaries were in Python and JS)
 		 List<Post> matchedPosts = postRepository.findByTitleContaining(search);
-		 List<Post> matchedPostsInText = postRepository.findByTitleContaining(search);
+		 List<Post> matchedPostsInText = postRepository.findByTextContaining(search);
 		 for (int i = 0; i <matchedPostsInText.size(); i++) {
 			 map.put(matchedPostsInText.get(i).getId(), matchedPostsInText.get(i)); // map acts as a dictionary (can only have one key value). so we want that key to be the ID (keeps it from duplicating)
 		 }

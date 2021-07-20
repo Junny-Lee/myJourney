@@ -24,6 +24,12 @@
 		<h2 id="logo"><a href="/home" id="logoTag">My Journey</a></h2>
 		<a href="/logout" class="aTags">Logout</a>
 	</div>
+	<!-- <div id="navBar">
+		<h2 id="logo"><a href="/home" id="logoTag">My Journey</a></h2>
+		<div id="links">
+			<a href="/logout" class="aTags">Logout</a>
+		</div>
+	</div> -->
 	<div id="main">
 		<div id="header">
 			<div id="mainHeader">
